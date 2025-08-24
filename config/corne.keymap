@@ -55,22 +55,23 @@
                                                      &HML PLUS EQUAL  &mo 1  &kp LEFT_SHIFT    &kp SPACE  &lt 2 TAB  &HMR LS(MINUS) MINUS
             >;
         };
+        
+lower_layer {
+    // -----------------------------------------------------------------------------------------
+    // |  `  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL  |
+    // |     |     |     |     |     |     |   |  [  |  ]  |  ;  |  '  |  -  |  =   |
+    // |     |     |     |     |     |     |   |  +  |  \  |  |  |     |     |      |
+    //                    | GUI |     | SPC |   | ENT |     | ALT |
 
-        lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+    display-name = "Lower";
+    bindings = <
+&kp GRAVE      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5          &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp DEL
+&trans         &trans     &trans     &trans     &trans     &trans          &kp LBKT     &kp RBKT     &kp SEMI     &kp SQT      &kp MINUS    &kp EQUAL
+&trans         &trans     &trans     &trans     &trans     &trans          &kp KP_PLUS  &kp BSLH     &kp PIPE     &trans       &trans       &trans
+                                   &trans      &trans     &kp SPACE        &kp ENTER    &trans       &trans
+    >;
+};
 
-            display-name = "Lower";
-            bindings = <
-&kp KP_MULTIPLY       &kp MINUS      &mt AMPERSAND N7          &mt ASTERISK N8       &mt LEFT_PARENTHESIS N9  &kp PLUS          &kp LS(LEFT_BRACKET)      &kp LS(RIGHT_BRACKET)  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&kp SLASH             &kp BACKSPACE  &mt DOLLAR NUMBER_4       &mt PERCENT N5        &mt CARET NUMBER_6       &kp ENTER         &kp LS(LC(LG(LEFT_ALT)))  &kp LEFT               &kp DOWN              &kp UP_ARROW           &kp RIGHT_ARROW   &kp DOLLAR
-&kp NON_US_BACKSLASH  &kp N0         &mt EXCLAMATION NUMBER_1  &mt AT_SIGN NUMBER_2  &mt HASH NUMBER_3        &kp PERIOD        &kp LA(LS(MINUS))         &kp LS(LC(TAB))        &kp PAGE_DOWN         &kp PG_UP              &kp LC(TAB)       &kp TILDE
-                                                               &kp TILDE             &kp SPACE                &kp LEFT_SHIFT    &kp SPACE                 &kp LG(LS(LEFT))       &kp LS(LG(RIGHT))
-            >;
-        };
 
         raise_layer {
             // -----------------------------------------------------------------------------------------
