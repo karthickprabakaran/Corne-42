@@ -1,0 +1,39 @@
+name: Build ZMK firmware
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:2.5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: West Init
+        run: west init -l config
+
+      - name: West Update
+        run: west update
+
+      - name: West Zephyr Export
+        run: west zephyr-export
+
+      - name: Build Left
+        run: west build -s zmk/app -d build/left -b nice_nano_v2 -- -DSHIELD=corne_left
+
+      - name: Build Right
+        run: west build -s zmk/app -d build/right -b nice_nano_v2 -- -DSHIELD=corne_right
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: zmk-firmware
+          path: |
+            build/left/zephyr/zmk.uf2
+            build/right/zephyr/zmk.uf2
